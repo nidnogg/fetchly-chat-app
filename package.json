@@ -1,0 +1,18 @@
+{
+  "name": "fetchly-sample-chat-app",
+  "version": "1.0.0",
+  "description": "A sample chat app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nidnogg (Henrique)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket-io": "^1.0.0",
+    "socket.io": "^4.6.1",
+    "websocket": "^1.0.34"
+  }
+}

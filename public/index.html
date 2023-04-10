@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fethcly Sample Chat App</title>
+  </head>
+  <body>
+    <div id="messages"></div>
+    <form id="message-form">
+      <input type="text" id="message-input">
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- Import socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // Initialize a new Socket.IO instance
+      const socket = io(); 
+
+      // Handle incoming 'message' events from the server
+      // by creating a container with the message text and adding it to the DOM.
+      socket.on('message', (message) => {
+        const messages = document.getElementById('messages'); 
+        const messageEl = document.createElement('div'); 
+        messageEl.innerText = message; 
+        messages.appendChild(messageEl);
+      });
+
+      // Handle form submissions
+      const form = document.getElementById('message-form');
+      form.addEventListener('submit', (e) => {
+        // Prevent the form from submitting normally
+        e.preventDefault(); 
+        // Get the input element
+        const input = document.getElementById('message-input'); 
+        // Get the value of the input, clear it and emit the actual message
+        const message = input.value; 
+        input.value = ''; 
+        socket.emit('message', message);
+      });
+     
+    </script>
+  </body>
+</html>
