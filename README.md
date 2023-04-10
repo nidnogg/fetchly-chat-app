@@ -1,2 +1,2 @@
 # fetchly-chat-app
-A barebons chat app sample
+A barebones chat app sample
